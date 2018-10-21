@@ -1,1 +1,13 @@
-* Firmware
+#+title: Firmware
+
+[[https://travis-ci.com/ConcaveTeam/firmware][https://travis-ci.com/ConcaveTeam/firmware.svg?branch=master]]
+
+This is the microcontroller code for the turret.
+
+* Instructions
+Make sure you have [[https://platformio.org/][PlatformIO]] installed.
+
+1. Clone this repo: =git clone https://github.com/concaveteam/firmware.git=
+2. Navigate to the cloned folder in the command line: =cd firmware=.
+3. Plug in the teensy3.6.
+4. Run =pio run -t upload=.
