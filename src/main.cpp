@@ -23,12 +23,10 @@ void aimCb(const concaveteam::Spherical& msg)
   azimuth_servo.write(msg.azimuth);
 }
 
-ros::Subscriber<concaveteam::Spherical> aim_sub("aim", &aimCb);
+ros::Subscriber<concaveteam::Spherical> aim_sub("point2d_to_spherical/aim", &aimCb);
 
 void setup()
 {
-  pinMode(polar_pin, OUTPUT);
-  pinMode(azim_pin, OUTPUT);
   polar_servo.attach(polar_pin);
   azimuth_servo.attach(azim_pin);
 
@@ -39,5 +37,5 @@ void setup()
 void loop()
 {
   nh.spinOnce();
-  delay(10);
+  delay(1);
 }
