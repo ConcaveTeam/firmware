@@ -16,11 +16,11 @@ const uint8_t azim_pin = PAZIM;
 const uint8_t trigger_pin = PTRIG;
 
 
-/*
- * Subscribe to the aim topic.
- * Every time the spherical angles are received, point the servos.
- *
- * @param msg the message containing the spherical angles in degrees.
+/**
+  Subscribe to the aim topic.
+  Every time the spherical angles are received, point the servos.
+ 
+  @param msg the message containing the spherical angles in degrees.
  */
 void aimCb(const concaveteam::Spherical& msg)
 {
@@ -28,6 +28,10 @@ void aimCb(const concaveteam::Spherical& msg)
   azimuth_servo.write(msg.azimuth);
 }
 
+/**
+   Subscribe to the trigger service.
+   Every time the service is queried, pull the triggger.
+*/
 void triggerCb(const std_srvs::Empty::Request& req, std_srvs::Empty::Response& res)
 {
   trigger_servo.write(20);
@@ -36,7 +40,6 @@ void triggerCb(const std_srvs::Empty::Request& req, std_srvs::Empty::Response& r
 }
 
 ros::Subscriber<concaveteam::Spherical> aim_sub("point2d_to_spherical/aim", &aimCb);
-// ros::ServiceClient client = nh.serviceClient<std_srvs::Empty>("trigger");
 ros::ServiceServer<std_srvs::Empty::Request, std_srvs::Empty::Response> trigger("trigger_srv", &triggerCb);
 
 void setup()
