@@ -1,7 +1,6 @@
 #include <PWMServo.h>
 #include <Wire.h>
 #include <concaveteam/Spherical.h>
-#include <concaveteam/Trigger.h>
 #include <std_srvs/Empty.h>
 #include <ros.h>
 
